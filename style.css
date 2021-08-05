@@ -8,6 +8,7 @@
 
 body{
 	margin: 0;
+    width: 100%;
 	height: 100%;
 	background: url(fondo.jpg);
 	background-size: cover;
@@ -16,6 +17,7 @@ body{
 	background-attachment: fixed;
 	justify-content: center;
 	align-items: center;
+    padding: 10px;
 }
 
 body::before{
@@ -25,50 +27,133 @@ body::before{
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: linear-gradient(45deg,navy,lightblue,navy,purple,pink,purple);
-	opacity: 0.8;
+    background: linear-gradient(135deg,navy,lightblue,navy,purple,pink,purple);
+    opacity: 0.8;
 	z-index: -1;
 }
 
-#lista{
-    border: solid 1px;
-    border-radius: 0.3em;
+/* contenedor lista */
+.lista {
+    border: solid white 0.5px; 
+    width: 100%;
+    margin: 0px auto;
+}
+
+/* fondo lista de libros */
+.lista li{
+	width: 95%;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: auto;
+    text-align: center;
     list-style: none;
-    text-align: center; 
-    margin: 1.5em auto;
-    padding: 0.5em;
-    color: white;
-	font-size: 2em;
-	width: 90%;
+    border-radius: 0.2em;
 }
 
-@media screen and (max-width: 1024px) {
-	#lista{
-		font-size: 1.5em;
-		width: 90%;
-	}
-}
 
-@media screen and (max-width: 768px) {
-	#lista{
-		font-size: 1em;
-		width: 90%;
-	}
-}
-
-#lista li{
-    margin: 1em auto;
-}
-
-#lista li a{
+/* lista de libros */
+.lista li a{
+    list-style: none;
     text-decoration: none;
     color: white;
-    text-shadow: 2px 2px 2px black;
-    font-weight: bold;
-	font-size: 1em;
-	font-family: sans-serif;
+    text-shadow: 1px 1px 1px black;
 }
 
-#lista li:hover{
-	background-color:lightblue;
+.lista li a:hover{
+    color: lightblue;
+    text-shadow: 1px 1px 1px black;
 }
+li {
+    margin: 1em auto;
+    padding: 0.5em;
+
+}
+
+
+/* media query pantalla vertical */
+@media (orientation: portrait) {
+	@media only screen and (max-width: 768px) {
+    ul {
+        height: 96.5vh;
+        overflow: auto;
+    }
+    .lista li {
+        width: 90%;
+        height: auto;
+    }
+    .lista li a {
+        width: 90%;
+		font-size: 1em;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    ul {
+        height: 98vh;
+        overflow: auto;
+    }
+    .lista li{
+        width: 70%;
+        height: auto;
+    }
+    .lista li a {
+        width: 70%;
+		font-size: 1.3em;
+    }
+}
+}
+
+/* media query pantalla horizontal */
+@media (orientation: landscape) {
+    @media only screen and (max-width: 768px) {
+        body {
+			background: url(fondo-menu2.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-attachment: fixed;
+			justify-content: center;
+			align-items: center;
+			margin: 0px auto;
+			display: flex;
+		}
+        ul {
+            height: 93vh;
+            overflow: auto;
+        }
+        .lista li {
+            width: 70%;
+            height: auto;
+        }
+        .lista li a {
+            width: 70%;
+            font-size: 1em;
+        }
+	}
+
+    @media only screen and (min-width: 768px) {
+		body {
+			background: url(fondo.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-attachment: fixed;
+			justify-content: center;
+			align-items: center;
+			margin: 0px auto;
+			display: flex;
+		}
+        ul {
+            height: 97vh;
+            overflow: auto;
+        }
+        .lista li {
+            width: 60%;
+            height: auto;
+        }
+        .lista li a {
+            width: 60%;
+            font-size: 1.3em;
+        }
+	}
+}
+
